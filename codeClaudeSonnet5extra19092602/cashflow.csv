@@ -1,0 +1,5 @@
+id,type,amount,description
+CASH1,INFLOW,172.0,Payment for order ORD1
+CASH2,OUTFLOW,25.0,Refund for return RET1
+CASH3,OUTFLOW,500.0,Restock RESTOCK1 for product P4
+CASH4,OUTFLOW,100.0,Manual operational expense - store rent

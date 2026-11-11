@@ -1,0 +1,5 @@
+id,type,amount,description
+CF1,INFLOW,259.0,Payment for order ORD1
+CF2,OUTFLOW,30.0,Refund for return RET1
+CF3,OUTFLOW,400.0,Restock RST1 for product P4
+CF4,OUTFLOW,150.0,Office rent

@@ -1,0 +1,5 @@
+entryId,type,amount,description
+CASH1,INFLOW,187.0,Payment for order ORD1
+CASH2,OUTFLOW,30.0,Refund for return RET1
+CASH3,OUTFLOW,500.0,Restock of product P4 from supplier SU1
+CASH4,OUTFLOW,150.0,Monthly warehouse rent payment

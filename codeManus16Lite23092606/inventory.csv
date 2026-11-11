@@ -1,0 +1,6 @@
+product_id,name,category,stock,unit_price
+P1,Notebook,Office,95,15.00
+P2,Pen,Office,190,5.00
+P3,Mug,Accessories,45,20.00
+P4,Backpack,Bags,14,80.00
+P5,Bottle,Accessories,30,25.00

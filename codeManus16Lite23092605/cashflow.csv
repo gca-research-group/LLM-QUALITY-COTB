@@ -1,0 +1,5 @@
+id,type,amount,description
+CF1,INFLOW,157.0,payment for ORD1
+CF2,OUTFLOW,15.0,refund for RET1
+CF3,OUTFLOW,50.0,restock RST1
+CF4,OUTFLOW,30.0,store utilities

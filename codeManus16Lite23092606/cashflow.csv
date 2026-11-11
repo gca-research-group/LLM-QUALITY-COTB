@@ -1,0 +1,5 @@
+id,type,amount,description
+PAY1,INFLOW,223.00,Payment for ORD1
+RET1,OUTFLOW,15.00,Refund for ORD1
+RST1,OUTFLOW,90.00,Restock P3
+MAN1,OUTFLOW,10.00,Store supplies

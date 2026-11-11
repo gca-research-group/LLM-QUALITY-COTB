@@ -1,0 +1,5 @@
+id,type,amount,description
+CF-PAY-PAY1,INFLOW,241.0,"Payment PAY1"
+CF-REF-RET1,OUTFLOW,80.0,"Refund RET1"
+CF-REST-RST1,OUTFLOW,90.0,"Restock RST1"
+CF-MANUAL,OUTFLOW,20.0,"Manual operational outflow"

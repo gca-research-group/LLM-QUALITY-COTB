@@ -1,0 +1,5 @@
+entry_id,type,amount,description
+"CF1",INFLOW,152.0,"Payment PAY1"
+"CF2",OUTFLOW,15.0,"Refund RET1"
+"CF3",OUTFLOW,90.0,"Restock RST1"
+"CF4",OUTFLOW,7.0,"Store supplies"

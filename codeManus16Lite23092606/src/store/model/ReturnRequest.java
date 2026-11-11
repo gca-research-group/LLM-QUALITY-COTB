@@ -1,0 +1,3 @@
+package store.model;
+import java.util.*;
+public final class ReturnRequest{private final String id;private final Order order;private final List<ReturnItem> items=new ArrayList<>();private boolean processed;public ReturnRequest(String id,Order o){this.id=id;order=o;}public String id(){return id;}public Order order(){return order;}public List<ReturnItem> items(){return Collections.unmodifiableList(items);}public boolean processed(){return processed;}public void add(ReturnItem i){if(processed)throw new IllegalStateException("Processed return");items.add(i);}public double refundTotal(){return items.stream().mapToDouble(ReturnItem::total).sum();}public void markProcessed(){processed=true;}}

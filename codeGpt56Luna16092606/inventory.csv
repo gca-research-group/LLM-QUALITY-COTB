@@ -1,0 +1,6 @@
+productId,name,category,stock,unitPrice,active
+P1,Notebook,C1,96,15.00,true
+P2,Pen,C1,199,5.00,true
+P3,Mug,C2,50,20.00,true
+P4,Backpack,C3,14,80.00,true
+P5,Bottle,C2,30,25.00,true

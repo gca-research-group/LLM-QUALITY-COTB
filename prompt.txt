@@ -1,0 +1,314 @@
+Write code in Java for the following system using only the standard Java library. The system must compile and run as written. Do not comment on the code. Use an object-oriented design appropriate to the problem. The system must be executable and must contain a working main class. For the sake of testing, outputs must be displayed in the console.
+
+The system is backend only, and it aims to compute the order totals for a small store. The system also manages catalog and stock, registers customers and suppliers, manages carts, assembles orders, applies promotions and shipping rules, registers payments, processes returns and refunds, processes restocking operations, records cashflow, and generates basic reports. The system has no graphical user interface and no external integrations.
+
+The system will run in a single process and will store all working data only in memory using collections. The system may write CSV files using only the standard Java library, but only for inventory and cashflow operations.
+
+The returned project must compile as written without requiring any manual edits.
+
+Organize the project into a coherent package structure appropriate to the system. Use more than one package, but choose the package names, number of packages, and distribution of classes yourself. Every file must begin with a package declaration that exactly matches its file path. All imports and package declarations must be internally consistent.
+
+Respect normal object-oriented encapsulation. Parts of the system that require information or behavior from other objects must interact through valid methods or other legal Java mechanisms. The returned code must not require changes to field visibility in order to compile or operate correctly.
+
+The design must support at least the following concepts and responsibilities:
+
+* product catalog and categories
+* customers and suppliers
+* carts and cart items
+* orders and order items
+* promotions and shipping rules
+* payments
+* returns and refunds
+* restocking operations
+* cashflow entries
+* reporting
+* in-memory data storage
+* CSV export for inventory and cashflow
+
+The exact class structure, use of interfaces, inheritance, enums, helper classes, services, repositories, and other design choices are left to you. The design should remain coherent and reasonably modular rather than placing the entire system in one large class.
+
+The system must obey the following business rules:
+
+* Product identifiers are unique.
+* Customer identifiers are unique.
+* Supplier identifiers are unique.
+* Unit prices, shipping values, discount values, payment values, refund values and restock unit costs cannot be negative.
+* Stock quantities cannot become negative.
+* Cart item quantities must be positive.
+* Restock quantities must be positive.
+* Inactive products cannot be added to carts.
+* Each order must contain at least one order item.
+* The subtotal of an order is the sum of the subtotals of its order items.
+* The subtotal of an order item is given by its quantity multiplied by the unit price stored in that order item.
+* The final total of an order is given by: subtotal minus promotion discount plus shipping.
+* Cancelled orders cannot be paid.
+* Paid orders cannot be cancelled.
+* If an unpaid order is cancelled, the stock reserved by that order must be restored.
+* Only paid orders can be returned.
+* A return must contain at least one returned item.
+* The returned quantity of a product cannot exceed the quantity originally bought in that order.
+* A successful payment must generate a cash inflow entry.
+* A successful refund must generate a cash outflow entry.
+* A successful return must restore the returned stock quantity.
+* A successful restock must increase stock quantity and generate a cash outflow entry.
+* If an operation would violate any of these rules, it must be rejected.
+
+The system must provide at least the following functionalities in a concrete and working way:
+
+Catalog and products:
+
+* Add new products to the catalog.
+* Search products by identifier.
+* Search products by name.
+* List products by category.
+* Activate and deactivate products.
+* Reject duplicate product identifiers.
+
+Stock:
+
+* Increase stock quantity of a product.
+* Decrease stock quantity of a product.
+* Reject operations that would make stock negative.
+* Reflect stock changes caused by orders, cancellations, refunds and restocking.
+
+Customers and suppliers:
+
+* Register customers.
+* Register suppliers.
+* Reject duplicate customer identifiers.
+* Reject duplicate supplier identifiers.
+
+Cart:
+
+* Create a cart for a customer.
+* Add products to a cart.
+* Update the quantity of a product already in a cart.
+* Remove products from a cart.
+* Calculate the subtotal preview of a cart.
+* Reject invalid cart quantities.
+* Reject inactive products in carts.
+
+Orders:
+
+* Create an order from the contents of a cart.
+* Preserve the unit price used at order creation time.
+* Calculate order subtotal.
+* Apply promotions to an order.
+* Apply shipping to an order.
+* Calculate final total.
+* Change order status appropriately.
+* Cancel an unpaid order.
+* Restore stock when an unpaid order is cancelled.
+
+Promotions:
+
+* Implement working promotion logic.
+* Support at least:
+
+  * a percentage promotion with a threshold
+  * a fixed discount promotion with a threshold or customer condition
+  * a buy X get Y promotion
+* Apply promotions only when their conditions are satisfied.
+
+Shipping:
+
+* Implement working shipping logic.
+* Support at least:
+
+  * standard shipping
+  * express shipping
+  * pickup shipping
+* Pickup shipping must have zero cost.
+
+Payments:
+
+* Register a payment for an order.
+* Change the order status after successful payment.
+* Reject payments for cancelled orders.
+* Generate a cash inflow entry for successful payment.
+
+Returns and refunds:
+
+* Create a return request for a paid order.
+* Add returned products and quantities to a return request.
+* Calculate the refund total from the returned items.
+* Process the refund.
+* Restore stock for returned items.
+* Generate a cash outflow entry for the refund.
+
+Restocking:
+
+* Register a restocking operation for a product using a supplier, quantity and unit cost.
+* Increase stock after restocking.
+* Calculate total restocking cost.
+* Generate a cash outflow entry for the restocking operation.
+
+Cashflow:
+
+* Record inflow and outflow entries.
+* Support manual operational outflow entries in addition to payments, refunds and restocking.
+* Summarize total inflow, total outflow and net cashflow.
+
+Reports:
+
+* Generate a stock report.
+* Generate a sales by product report.
+* Generate an orders by status report.
+* Generate a cashflow summary report.
+* Generate a returns/refunds report.
+* Generate a restocking report.
+
+CSV:
+
+* Export inventory data to inventory.csv.
+* Export cashflow data to cashflow.csv.
+* Print the exact filenames used during export.
+
+When the main method of the program is executed, it must perform a fixed scenario using hard-coded values in order to demonstrate all major functionalities of the system and make the system easy to test.
+
+Use the following input data in the fixed scenario:
+
+Categories:
+
+* C1 = Office
+* C2 = Accessories
+* C3 = Bags
+
+Products:
+
+* P1 = Notebook, unitPrice = 15.0, category = Office
+* P2 = Pen, unitPrice = 5.0, category = Office
+* P3 = Mug, unitPrice = 20.0, category = Accessories
+* P4 = Backpack, unitPrice = 80.0, category = Bags
+* P5 = Bottle, unitPrice = 25.0, category = Accessories
+
+Initial stock:
+
+* P1 = 100
+* P2 = 200
+* P3 = 40
+* P4 = 15
+* P5 = 30
+
+Customers:
+
+* CU1 = Ana, loyalty tier = REGULAR
+* CU2 = Bruno, loyalty tier = GOLD
+* CU3 = Carla, loyalty tier = SILVER
+
+Suppliers:
+
+* SU1 = Alpha Supplies
+* SU2 = Beta Wholesale
+
+Promotion rules:
+
+* a 10 percent discount promotion for orders with subtotal greater than or equal to 200.0
+* a fixed discount promotion of 5.0 for GOLD customers with subtotal greater than or equal to 50.0
+* a buy 2 get 1 free promotion for product P2
+
+Shipping rules:
+
+* STANDARD = 12.0
+* EXPRESS = 25.0
+* PICKUP = 0.0
+
+Cashflow:
+
+* at least one manual OUTFLOW entry must be registered in the scenario to demonstrate that cashflow is not composed only of payments, refunds and restocking
+
+The Main scenario must at least do the following:
+
+* create and register all categories
+* create and register all products
+* initialize stock for all products
+* register all customers
+* register all suppliers
+* register the promotions
+* create a cart for customer CU2
+* add products P4, P1, P2 and P5 to the cart with varying quantities
+* print the cart subtotal
+* update the quantity of one cart item
+* print the cart subtotal again
+* remove one cart item
+* print the cart subtotal again
+* create an order ORD1 from that cart
+* apply one promotion to ORD1
+* apply one shipping rule to ORD1
+* calculate the final total of ORD1
+* register a payment for ORD1
+* create a second cart for customer CU1
+* add at least two products to that second cart
+* create a second order ORD2 from that cart
+* apply shipping to ORD2
+* calculate the final total of ORD2
+* cancel ORD2 before payment
+* create a return request for ORD1
+* add at least one valid returned item to that return request
+* calculate the refund total
+* process the refund for that return request
+* perform at least one restocking operation for one product using one registered supplier
+* register at least one manual cashflow outflow entry
+* export inventory data to inventory.csv
+* export cashflow data to cashflow.csv
+* attempt at least one invalid operation that must be rejected
+* print the stock report
+* print the sales by product report
+* print the orders by status report
+* print the cashflow summary report
+* print the returns/refunds report
+* print the restocking report
+
+For ease of testing, Main must print the actual results of the scenario clearly and consistently. The printed output must include at least:
+
+* number of registered products
+* number of registered customers
+* number of registered suppliers
+* cart subtotal before quantity/item changes
+* cart subtotal after the quantity change
+* cart subtotal after the item removal
+* order ORD1 subtotal
+* order ORD1 promotion discount
+* order ORD1 shipping cost
+* order ORD1 final total
+* order ORD1 final status
+* order ORD2 subtotal
+* order ORD2 promotion discount
+* order ORD2 shipping cost
+* order ORD2 final total
+* order ORD2 final status
+* return request identifier
+* returned product identifiers and quantities
+* refund total
+* restock entry identifier
+* restocked product identifier and quantity
+* restock total cost
+* final stock values of P1, P2, P3, P4 and P5
+* confirmation that the invalid operation was rejected
+* the information required by the stock report
+* the information required by the sales by product report
+* the information required by the orders by status report
+* the information required by the cashflow summary report
+* the information required by the returns/refunds report
+* the information required by the restocking report
+* confirmation that inventory.csv was exported
+* confirmation that cashflow.csv was exported
+
+The stock report must print each product identifier and current stock quantity.
+The sales by product report must print each product identifier and sold quantity.
+The orders by status report must print the count of orders in each status.
+The cashflow summary report must print total inflow, total outflow, and net cashflow.
+The returns/refunds report must print each return identifier and its refund total, and may also print returned quantities by product.
+The restocking report must print each restock identifier, product identifier, supplier identifier, quantity and total cost.
+
+All of these steps in Main must use the operations of the system rather than directly mutating internal state in a way that bypasses the business logic.
+
+Output format requirements:
+
+* Return all files needed for the project.
+* For each file, print a marker in this exact format before the code:
+  FILE: path/to/FileName.java
+* Every file must begin with a package declaration that exactly matches its file path.
+* All imports and package declarations must be internally consistent.
+* Do not omit imports.
+* Return only the code files in the specified format.

@@ -1,0 +1,5 @@
+id,type,amount,description
+PAY-PAY1,INFLOW,162.00,Payment for ORD1
+REF-RET1,OUTFLOW,10.00,Refund for ORD1
+RST-RST1,OUTFLOW,120.00,Restocking P3
+MAN1,OUTFLOW,30.00,Manual operational outflow

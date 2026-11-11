@@ -1,0 +1,5 @@
+type,description,amount
+INFLOW,Payment PAY1,170.00
+OUTFLOW,Refund RET1,15.00
+OUTFLOW,Restock RST1,120.00
+OUTFLOW,Store supplies,8.00

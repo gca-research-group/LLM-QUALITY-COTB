@@ -1,0 +1,5 @@
+entryId,type,amount,description
+CF-PAY1,INFLOW,157.0,Payment for order ORD1
+REF1,OUTFLOW,15.0,Refund for return RET1
+CF-RESTOCK1,OUTFLOW,400.0,Restock RESTOCK1 for product P4 from supplier SU1
+OUT1,OUTFLOW,100.0,Manual operational outflow for office rent

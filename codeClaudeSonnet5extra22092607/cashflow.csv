@@ -1,0 +1,5 @@
+EntryId,Type,Amount,Description
+CF1,INFLOW,150.0,Payment PAY1 for order ORD1
+CF2,OUTFLOW,80.0,Refund for return RET1
+CF3,OUTFLOW,500.0,Restock RESTOCK1 product P4 from supplier SU1
+CF4,OUTFLOW,300.0,Office rent

@@ -1,0 +1,5 @@
+id,type,amount,description
+PAY1,INFLOW,152.00,Pagamento ORD1
+RET1,OUTFLOW,80.00,Reembolso ORD1
+RST1,OUTFLOW,100.00,Reabastecimento P3
+MAN1,OUTFLOW,7.00,Operational supplies

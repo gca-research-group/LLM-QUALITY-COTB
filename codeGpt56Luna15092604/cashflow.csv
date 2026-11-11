@@ -1,0 +1,5 @@
+id,type,amount,description
+CF-P-PAY1,INFLOW,182.00,Payment PAY1
+CF-R-RET1,OUTFLOW,30.00,Refund RET1
+CF-S-RST1,OUTFLOW,120.00,Restock RST1
+CF-M1,OUTFLOW,30.00,Manual operational expense
